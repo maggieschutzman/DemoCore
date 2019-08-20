@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreDemo {
     public class Startup {
@@ -27,6 +28,13 @@ namespace CoreDemo {
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+           
+            //TODO: Put this in the json file!
+            string connstr = @"Data Source=LAPTOP-ER0U6K99\SQLEXPRESS;Initial Catalog=CoreDemo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            services.AddDbContext<Models.MyDatabase>
+                (options => options.UseSqlServer(connstr));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
