@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocuSign.eSign.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,10 +12,14 @@ namespace CoreDemo.Models {
         [Key]
         public int CustomerID { get; set; }
 
-        [MaxLength(30)] [Required]
+        [MaxLength(30)]
+        [Required]
+        
         public string Firstname { get; set; }
 
-        [MaxLength(50)] [Required]
+        [MaxLength(50)]
+        [Required]
+        
         public string Lastname { get; set; }
 
         public DateTime Added { get; set; }
